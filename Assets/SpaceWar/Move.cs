@@ -18,6 +18,16 @@ public class Move : MonoBehaviour
     void Update()
     {
         Vector3 mousePosition = Input.mousePosition - new Vector3(Screen.width /2, Screen.height/2, 0) ;
-        rb.MovePosition(mousePosition / 10f);
+
+        if(mousePosition.x != float.PositiveInfinity)
+            rb.MovePosition(mousePosition / 10f);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("asteroid"))
+        {
+            hp.hps -= 10;
+        }
     }
 }

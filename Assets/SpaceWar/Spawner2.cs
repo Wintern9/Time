@@ -11,6 +11,8 @@ public class Spawner2 : MonoBehaviour
         StartCoroutine(PerformActionEveryTwoSeconds());
     }
 
+    public float sec;
+
     IEnumerator PerformActionEveryTwoSeconds()
     {
         while (true)
@@ -18,13 +20,18 @@ public class Spawner2 : MonoBehaviour
             // Выполнение действия
             PerformAction();
 
+            if(sec == 0)
+            {
+                sec = 2;
+            }
             // Задержка на 2 секунды
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(sec);
         }
     }
 
     void PerformAction()
     {
-        Instantiate(Asteroid, gameObject.transform);
+        GameObject obj = Instantiate(Asteroid, gameObject.transform);
+        obj.transform.parent = null;
     }
 }

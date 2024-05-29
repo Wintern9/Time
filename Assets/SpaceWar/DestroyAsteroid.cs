@@ -11,4 +11,9 @@ public class DestroyAsteroid : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

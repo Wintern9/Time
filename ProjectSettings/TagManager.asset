@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - laser
+  - asteroid
+  - enemi
+  - enemi2
+  - bullet
   layers:
   - Default
   - TransparentFX
